@@ -1,0 +1,41 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.wrapper{
+    display: flex;
+    position: absolute;
+    padding: 5rem;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+p{
+    color:aliceblue;
+    border: 1px solid grey;
+}
+
+button{
+    position: absolute;
+    padding: 0.6rem;
+}
+
+#btn1{
+    transform: translateY(-18rem);
+
+}
+
+#btn2{
+    transform: translateY(-15rem);
+
+}
+
+#btn3{
+    transform: translateY(-12rem);
+
+}
