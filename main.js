@@ -387,11 +387,11 @@ function selectHeavyProduct(array) {
   }
 }
 //devuelve un Menu Light en un string.
-function ligthMenuComposer() {
+function lightMenuComposer() {
   let comida = getRandomElement(ligthFoods);
   let postre = selectLightProduct(postres);
 
-  const result = `Menu Ligth  ${comida["nombre"]} y de postre ${postre["nombre"]}.`;
+  const result = `Menu Light  ${comida["nombre"]} y de postre ${postre["nombre"]}.`;
 
   return result;
 }
@@ -409,42 +409,16 @@ function heavyMenuComposer() {
 
 //HTML ELEMENTS//
 /////////////////
+const btnLooper = document.getElementById('1');
+const btnMenuL = document.getElementById('2');
+const btnMenuH = document.getElementById('3');
 
-//crear divs HTML.
-const wrapper = document.createElement("div");
-wrapper.className = "wrapper";
-const menuDiv = document.createElement("div");
-const buttonsDiv = document.createElement("div");
-buttonsDiv.setAttribute("id", "buttonsDiv");
-menuDiv.setAttribute("id", "menuDiv");
-document.body.appendChild(buttonsDiv);
-document.body.appendChild(wrapper);
-wrapper.append(menuDiv);
 
 //estilos CSS para DIV's.
-document.body.style.backgroundColor = 'rgb(255,250,240)';
-wrapper.style.width = `${innerWidth / 1.11}px`;
-wrapper.style.height = `${innerHeight / 1.33}px`;
+document.body.style.backgroundColor = 'bg-light';
 
-//crear botones HTML.
-const btnLooper = document.createElement("button");
-const btnMenuL = document.createElement("button");
-const btnMenuH = document.createElement("button");
-const btnTest = document.createElement('button');
 
-btnLooper.setAttribute("id", "btn1");
-btnMenuL.setAttribute("id", "btn2");
-btnMenuH.setAttribute("id", "btn3");
-btnLooper.className = 'btn btn-outline-primary'
-btnMenuL.className = 'btn btn-outline-primary'
-btnMenuH.className = 'btn btn-outline-primary'
 
-btnLooper.innerText = "Fill with PASTA";
-btnMenuH.innerText = "Funcion crear MENU COMUN";
-btnMenuL.innerText = "Funcion crear MENU LIGTH";
-buttonsDiv.appendChild(btnLooper);
-buttonsDiv.appendChild(btnMenuL);
-buttonsDiv.appendChild(btnMenuH);
 
 //EventHandlers de botones.
 btnLooper.addEventListener("click", () => {
@@ -453,14 +427,16 @@ btnLooper.addEventListener("click", () => {
 
 btnMenuL.addEventListener("click", () => {
   var parrafo = document.createElement("p");
-  parrafo.innerText = ligthMenuComposer();
+  parrafo.innerText = lightMenuComposer();
   menuDiv.appendChild(parrafo);
-  parrafo.style.color = 'rgb(0,255,100)'
+  menuDiv.className = 'border border-2 row m-1 p-2 rounded-3 bg-light justify-content-center'
+  parrafo.className = 'text-secondary m-1 p-0 text-center border rounded-3'
 });
 
 btnMenuH.addEventListener("click", () => {
   var parrafo = document.createElement("p");
   parrafo.innerHTML = heavyMenuComposer();
   menuDiv.appendChild(parrafo);
-  parrafo.style.color = "rgb(225,0,122)";
+  menuDiv.className = 'border border-2 row m-1 p-2 rounded-3 justify-content-center bg-light'
+  parrafo.className = "text-black m-1 p-0 text-center border rounded-3";
 });
